@@ -11,7 +11,6 @@ namespace MessageConsumer;
 
 public class Worker : BackgroundService
 {
-    private readonly IConfiguration _configuration;
     private IConnection _connection = null!;
     private IModel _channel = null!;
     private readonly ILogger<Worker>? _logger;
@@ -21,13 +20,11 @@ public class Worker : BackgroundService
     private readonly RabbitMqOptions _rabbitMqOptions;
 
     public Worker(
-        IConfiguration configuration,
         IOptions<RabbitMqOptions> options,
         IServiceProvider serviceProvider,
         ILogger<Worker>? logger = null
     )
     {
-        _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         _rabbitMqOptions = options?.Value ?? throw new ArgumentNullException(nameof(options));
         _serviceProvider =
             serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));

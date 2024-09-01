@@ -1,4 +1,5 @@
 using GraphQl.Mongo.Database.DALs;
+using GraphQlDemo.Shared.Enums;
 using GraphQlDemo.Shared.Messaging;
 
 namespace MessageConsumer.Processors;
@@ -19,10 +20,13 @@ public class EmailProcessor(CustomerDAL customerDAL, ILogger<EmailProcessor>? lo
         var dbGetResult = await _customerDAL.GetCustomerOrderByIdAsync(orderId);
         if (dbGetResult.IsError || !dbGetResult.IsSuccess || dbGetResult.Data == null)
         {
-            _logger?.LogError("No order found with id {0}", messageDto.ReferenceId);
+            _logger?.LogError(dbGetResult.Exception, "No order found with id {0}", messageDto.ReferenceId);
             return false;
         }
-        var dbUpdateResult = await _customerDAL.UpdateCustomerOrder(orderId, dbGetResult.Data);
+        var customerOrder = dbGetResult.Data;
+        customerOrder.OrderStatusId = OrderStatusEnum.Processing;
+
+        var dbUpdateResult = await _customerDAL.UpdateCustomerOrder(orderId, customerOrder);
         if (dbUpdateResult.IsError || !dbUpdateResult.IsSuccess)
         {
             _logger?.LogError(dbUpdateResult.Exception, "Unable to update customer order {0}", dbGetResult.Data.Id.ToString());
