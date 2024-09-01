@@ -4,7 +4,6 @@ using GraphQlDemo.Shared.Messaging;
 
 namespace MessageConsumer.Processors;
 
-
 public class EmailProcessor(CustomerDAL customerDAL, ILogger<EmailProcessor>? logger = null) : BaseProcessor
 {
     private readonly CustomerDAL _customerDAL = customerDAL ?? throw new ArgumentNullException(nameof(customerDAL));

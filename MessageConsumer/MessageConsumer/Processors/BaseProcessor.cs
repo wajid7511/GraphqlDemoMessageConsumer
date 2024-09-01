@@ -9,6 +9,6 @@ public abstract class BaseProcessor
 
     public virtual ValueTask<bool> ProcessAsync(MessageDto messageDto)
     {
-        return ValueTask.FromResult(false);
+        return ValueTask.FromResult(true);
     }
 }
