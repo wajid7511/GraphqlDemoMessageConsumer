@@ -10,6 +10,7 @@ ARG PAT_TOKEN
 
 COPY ["MessageConsumer.sln", "."] 
 COPY ["MessageConsumer/MessageConsumer.csproj", "MessageConsumer/"]
+COPY ["Tests/MessageConsumerTests/MessageConsumerTests.csproj", "Tests/"]
 
 # Create a NuGet configuration file
 RUN dotnet nuget add source $FEED_URL -n AzureDevOps -u email2wajidkhan --store-password-in-clear-text -p $PAT_TOKEN
@@ -29,7 +30,7 @@ FROM build AS testrunner
 WORKDIR /src
 
 # Execute tests
-# RUN dotnet test --no-build "Tests/GraphQl.Core.Test/GraphQl.Core.Test.csproj" --verbosity normal 
+RUN dotnet test --no-build "Tests/MessageConsumerTests/MessageConsumerTests.csproj" --verbosity normal 
 
 # Stage 3: Publish the application
 FROM build AS publish

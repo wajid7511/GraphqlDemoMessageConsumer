@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageConsumer", "MessageConsumer\MessageConsumer.csproj", "{2A3C480C-FBF3-4B2F-800C-F669D543265E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8B66F75B-5E7D-41BB-BFDD-E3D1AF8B8613}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageConsumerTests", "Tests\MessageConsumerTests\MessageConsumerTests.csproj", "{13B8B62B-2244-48B7-93C4-714359DBFF4A}"
 EndProject
 Global
@@ -22,12 +20,7 @@ Global
 		{2A3C480C-FBF3-4B2F-800C-F669D543265E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A3C480C-FBF3-4B2F-800C-F669D543265E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A3C480C-FBF3-4B2F-800C-F669D543265E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13B8B62B-2244-48B7-93C4-714359DBFF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13B8B62B-2244-48B7-93C4-714359DBFF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13B8B62B-2244-48B7-93C4-714359DBFF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13B8B62B-2244-48B7-93C4-714359DBFF4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{13B8B62B-2244-48B7-93C4-714359DBFF4A} = {8B66F75B-5E7D-41BB-BFDD-E3D1AF8B8613}
 	EndGlobalSection
 EndGlobal
